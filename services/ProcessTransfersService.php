@@ -24,6 +24,7 @@ class ProcessTransfersService implements ProcessTransfersServiceInterface
     public function proccessTransfers(\DateTime $currentTime)
     {
         $transfers = $this->transfersRepo->findIncompleteTransfersWithProcessAtLessThanDate($currentTime);
+        if (empty($transfers)) return;
         /** @var User[] $users */
         $users = [];
         foreach ($transfers as $transfer) {

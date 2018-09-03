@@ -16,4 +16,9 @@ interface TransferRepoInteface
      * @return MoneyTransfer[]
      */
     public function findIncompleteTransfersWithProcessAtLessThanDate($date);
+
+    /**
+     * @return array
+     */
+    public function findUsersWithLastTransactions();
 }

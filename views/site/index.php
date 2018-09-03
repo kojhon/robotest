@@ -14,8 +14,14 @@ $this->title = 'My Yii Application';
 
         <div class="row">
                 <h2>List of all users with last transfers:</h2>
-
-                <p></p>
+                <?= \yii\grid\GridView::widget([
+                'dataProvider' => $dataProvider,
+                'columns' => [
+                    'username',
+                    'sum',
+                    'process_after'
+                ],
+            ]); ?>
         </div>
 
     </div>

@@ -3,13 +3,14 @@
 namespace app\controllers;
 
 use app\forms\RegistrationForm;
+use app\repositories\TransferRepoInteface;
 use Yii;
+use yii\data\ArrayDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\forms\LoginForm;
-use app\forms\ContactForm;
 
 class SiteController extends Controller
 {
@@ -62,7 +63,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        /** @var TransferRepoInteface $transferRepo */
+        $transferRepo = Yii::$container->get(TransferRepoInteface::class);
+        return $this->render('index', [
+            'dataProvider' => new ArrayDataProvider(['allModels' => $transferRepo->findUsersWithLastTransactions()])
+        ]);
     }
 
     /**
