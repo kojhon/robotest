@@ -12,6 +12,7 @@ use yii\db\ActiveRecord;
  * @property string $username
  * @property string $password
  * @property string $auth_key
+ * @property integer $balance
  */
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {

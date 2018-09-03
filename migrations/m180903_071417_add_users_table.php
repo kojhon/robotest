@@ -16,7 +16,8 @@ class m180903_071417_add_users_table extends Migration
             'id' => $this->primaryKey(),
             'username' => $this->string()->notNull(),
             'password' => $this->string()->notNull(),
-            'auth_key' => $this->string()->unique()->notNull()
+            'auth_key' => $this->string()->unique()->notNull(),
+            'balance' => $this->integer()->notNull()->defaultValue(0)
         ]);
     }
 

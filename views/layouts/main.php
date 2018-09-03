@@ -37,14 +37,14 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
 
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
         $menuItems[] = ['label' => 'Registration', 'url' => ['/site/registration']];
     } else {
+        $menuItems[] = ['label' => 'My Money Transfers', 'url' => ['/money-transfer']];
+        $menuItems[] = ['label' => 'Create Money Transfer', 'url' => ['/money-transfer/create']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

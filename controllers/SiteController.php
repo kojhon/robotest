@@ -2,14 +2,14 @@
 
 namespace app\controllers;
 
-use app\models\RegistrationForm;
+use app\forms\RegistrationForm;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use app\forms\LoginForm;
+use app\forms\ContactForm;
 
 class SiteController extends Controller
 {
@@ -115,25 +115,6 @@ class SiteController extends Controller
             'model' => $form,
         ]);
     }
-
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            return $this->refresh();
-        }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
-    }
-
     /**
      * Displays about page.
      *

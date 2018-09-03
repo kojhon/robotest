@@ -7,7 +7,7 @@
 
 namespace app\commands;
 
-use app\services\ProcessTransactionsServiceInterface;
+use app\services\ProcessTransfersServiceInterface;
 use yii\console\Controller;
 use yii\console\ExitCode;
 
@@ -19,13 +19,13 @@ use yii\console\ExitCode;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class TransactionsController extends Controller
+class TransfersController extends Controller
 {
     public function actionIndex()
     {
-        /** @var ProcessTransactionsServiceInterface $service */
-        $service = \Yii::$container->get(ProcessTransactionsServiceInterface::class);
-        $service->proccessTransactions(new \DateTime());
+        /** @var ProcessTransfersServiceInterface $service */
+        $service = \Yii::$container->get(ProcessTransfersServiceInterface::class);
+        $service->proccessTransfers(new \DateTime());
 
         return ExitCode::OK;
     }
