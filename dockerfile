@@ -6,6 +6,8 @@ RUN apk add postgresql postgresql-dev \
   && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
   && docker-php-ext-install pdo pdo_pgsql pgsql
 
+RUN docker-php-ext-install bcmath
+
 RUN apk add zlib-dev git zip \
   && docker-php-ext-install zip
 

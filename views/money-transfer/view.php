@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'from_user',
             'to_user',
             'process_after',
+            'sum',
             'is_processed:boolean',
         ],
     ]) ?>
