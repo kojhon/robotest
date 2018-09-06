@@ -24,14 +24,7 @@ modules:
 #        include:
 #            - models/*
 #            - controllers/*
+#            - forms/*
+#            - repositories/*
 #            - commands/*
-#            - mail/*
-#    blacklist:
-#        include:
-#            - assets/*
-#            - config/*
-#            - runtime/*
-#            - vendor/*
-#            - views/*
-#            - web/*
-#            - tests/*
+#            - services/*
